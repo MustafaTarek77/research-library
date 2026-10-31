@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Source this file before invoking any Airflow command from a WSL/Linux shell.
+source "$(dirname -- "${BASH_SOURCE[0]}")/load_env.sh"
+export RESEARCH_LIBRARY_ROOT="$project_root"
+export AIRFLOW_HOME="${AIRFLOW_HOME:-$project_root/.airflow}"
+export AIRFLOW__CORE__DAGS_FOLDER="${AIRFLOW__CORE__DAGS_FOLDER:-$project_root/dags}"
+export AIRFLOW__CORE__LOAD_EXAMPLES="${AIRFLOW__CORE__LOAD_EXAMPLES:-false}"
+export AIRFLOW__CORE__PARALLELISM="${AIRFLOW__CORE__PARALLELISM:-1}"
+export AIRFLOW__CORE__DEFAULT_TIMEZONE="${AIRFLOW__CORE__DEFAULT_TIMEZONE:-UTC}"
+export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS="${AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS:-admin:admin}"
+export AIRFLOW__API__HOST="${AIRFLOW__API__HOST:-127.0.0.1}"
+export AIRFLOW__API__WORKERS="${AIRFLOW__API__WORKERS:-1}"
+export AIRFLOW__DAG_PROCESSOR__PARSING_PROCESSES="${AIRFLOW__DAG_PROCESSOR__PARSING_PROCESSES:-1}"
+export PYTHONPATH="$project_root/src${PYTHONPATH:+:$PYTHONPATH}"
+export PATH="$project_root/.airflow-venv/bin:$PATH"

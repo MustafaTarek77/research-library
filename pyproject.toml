@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-library"
+version = "0.1.0"
+description = "Assignment 3: local PDF research library orchestrated with Airflow"
+requires-python = ">=3.12"
+dependencies = ["pymupdf4llm==0.0.27", "pymupdf==1.26.7", "python-dotenv>=1.0,<2"]
+
+[project.scripts]
+research-library = "research_library.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+research_library = ["templates/*.html"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

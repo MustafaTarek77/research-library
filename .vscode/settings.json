@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    ".venv": true,
+    ".airflow-venv": true,
+    ".cache": true,
+    ".pytest_cache": true,
+    "**/__pycache__": true,
+    "**/*.egg-info": true
+  },
+  "search.exclude": {
+    ".venv/**": true,
+    ".airflow-venv/**": true,
+    ".cache/**": true,
+    ".pytest_cache/**": true,
+    "**/__pycache__/**": true,
+    "**/*.egg-info/**": true
+  }
+}

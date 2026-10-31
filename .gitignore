@@ -1,0 +1,16 @@
+.venv/
+.cache/
+.env
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.airflow/
+.airflow-venv/
+logs/
+ResearchLibrary/papers/*
+!ResearchLibrary/papers/.gitkeep
+ResearchLibrary/output/*
+!ResearchLibrary/output/.gitkeep
+data/*
+!data/.gitkeep
+benchmarks/*.json
