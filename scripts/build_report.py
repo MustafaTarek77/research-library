@@ -4,6 +4,7 @@
 from html import escape
 from pathlib import Path
 import re
+from urllib.parse import urljoin, urlsplit
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
@@ -83,7 +84,12 @@ class Architecture(Flowable):
 
 def inline(text):
     text = escape(text)
-    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', lambda m: f'<link href="{m[2]}" color="#0563c1">{m[1]}</link>', text)
+    def link(match):
+        target = match[2]
+        if not urlsplit(target).scheme and not target.startswith('#'):
+            target = urljoin('https://github.com/MustafaTarek77/research-library/blob/main/docs/', target)
+        return f'<link href="{target}" color="#0563c1">{match[1]}</link>'
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', link, text)
     text = re.sub(r'`([^`]+)`', r'<font name="Courier" size="8.8">\1</font>', text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', text)
     text = re.sub(r'\*([^*]+)\*', r'<i>\1</i>', text)
