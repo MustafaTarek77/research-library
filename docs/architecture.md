@@ -57,8 +57,9 @@ download input PDFs and upload the generated page when DRIVE_SYNC_ENABLED=true.
 Desktop-synced or local folders use the same workflow with that setting false.
 No database or application-state files are transferred to Drive.
 
-Pending external setup: the real Discord webhook and delivery verification,
-GitHub repository URL, group members, and final report completion.
+The complete Drive-to-Discord run succeeded, including confirmation of four
+pending notifications. Subsequent scans skipped previously stored papers. The
+final report and screenshots document the evaluated run and its limitations.
 
 The DAG runs every five minutes with catchup disabled, one active run, and one
 active task. It maps conversion, extraction, and storage per new PDF. HTML

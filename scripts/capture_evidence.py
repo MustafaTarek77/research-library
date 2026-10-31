@@ -45,9 +45,10 @@ def main():
               "notification checkpoint recovery, disabled delivery, and webhook error redaction.",
               "The generated page's JavaScript was syntax-checked with Node. Interactive filtering",
               "should also be reviewed in the user's browser before the final demonstration.", "",
-              "## Remaining submission work", "",
-              "Verify a complete run with the configured Drive and Discord integrations. Add group",
-              "members, update the report against the latest evidence, and generate its final PDF.", ""]
+              "## Reproduction", "",
+              "The README documents setup and execution. The final technical report is available in",
+              "docs/technical-report.pdf, with its editable source in docs/report.md and screenshots",
+              "in screenshots/. Run this script after another experiment to refresh the state tables.", ""]
     destination = root / "docs/execution-evidence.md"
     destination.write_text("\n".join(lines), encoding="utf-8")
     print(f"Wrote {destination}")

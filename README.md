@@ -332,13 +332,20 @@ docs/                           Architecture, execution evidence, and report
 
 - [Architecture](docs/architecture.md)
 - [Execution evidence](docs/execution-evidence.md)
-- [Report draft](docs/report-draft.pdf)
+- [Technical report (Markdown)](docs/report.md)
+- [Technical report (PDF)](docs/technical-report.pdf)
 
-The report source is `docs/report.html`. Regenerate the PDF with:
+The report source is `docs/report.md`, and its evidence figures are stored in
+`screenshots/`. To rebuild the PDF:
 
 ```bash
+.venv/bin/python -m pip install -e '.[report]'
 .venv/bin/python scripts/build_report.py
 ```
+
+The renderer embeds Windows Times New Roman fonts when available through WSL and
+otherwise uses the built-in Times family. The document contains two technical
+pages and a two-page screenshot appendix.
 
 Export local run evidence with:
 
